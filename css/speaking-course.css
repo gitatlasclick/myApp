@@ -1,0 +1,360 @@
+/* ==========================================
+   SPEAKING COURSE - 아틀라스 한글
+   ========================================== */
+
+.speaking-hero {
+    background: linear-gradient(135deg, #F0FFF4 0%, #F5FFF8 50%, #E8F5E9 100%);
+    padding: 5rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+body.night .speaking-hero {
+    background: linear-gradient(135deg, #101A15 0%, #152520 50%, #0A1510 100%);
+}
+
+.speaking-hero::before {
+    content: '말하기';
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16rem;
+    font-weight: 900;
+    color: #5B8C5A;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.speaking-hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .speaking-hero .container { grid-template-columns: 1fr; }
+}
+
+.speaking-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(91,140,90,0.1);
+    color: #5B8C5A;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(91,140,90,0.2);
+}
+
+.speaking-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.speaking-hero-title .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #5B8C5A;
+    display: block;
+    font-size: 2rem;
+}
+
+.speaking-hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.speaking-hero-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.speaking-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.speaking-stat i { color: #5B8C5A; }
+
+/* Progress */
+.speaking-hero-progress {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.progress-circle {
+    width: 140px; height: 140px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.progress-circle svg { transform: rotate(-90deg); }
+.progress-circle .bg { fill: none; stroke: var(--border); stroke-width: 10; }
+.progress-circle .fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1.8s ease; }
+.progress-circle .percent-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #5B8C5A;
+}
+
+.progress-info-text { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.progress-mini-bar { height: 8px; background: var(--border); border-radius: 10px; overflow: hidden; }
+.progress-mini-fill { height: 100%; background: #5B8C5A; border-radius: 10px; transition: width 0.5s ease; }
+
+/* Tabs */
+.course-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+}
+
+.course-tab {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s;
+}
+
+.course-tab:hover { color: #5B8C5A; }
+.course-tab.active { color: #5B8C5A; border-bottom-color: #5B8C5A; }
+
+/* Level Badge */
+.level-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.level-badge.beginner { background: #E8F5E9; color: #22C55E; }
+.level-badge.intermediate { background: #FFF8E1; color: #F59E0B; }
+.level-badge.advanced { background: #FEE2E2; color: #EF4444; }
+
+/* Level Section */
+.level-section {
+    margin-bottom: 2.5rem;
+}
+
+.level-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.level-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.s-icon-beginner { background: rgba(34,197,94,0.1); color: #22C55E; }
+.s-icon-intermediate { background: rgba(245,158,11,0.1); color: #F59E0B; }
+.s-icon-advanced { background: rgba(239,68,68,0.1); color: #EF4444; }
+
+.level-info { flex: 1; }
+.level-korean { font-family: 'Noto Sans KR', sans-serif; font-size: 0.85rem; color: #5B8C5A; font-weight: 600; }
+.level-title { font-weight: 800; color: var(--text); font-size: 1.1rem; }
+.level-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Lesson Grid */
+.lessons-grid-speaking {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 400px) {
+    .lessons-grid-speaking { grid-template-columns: 1fr; }
+}
+
+/* Speaking Lesson Card */
+.speaking-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.speaking-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(91,140,90,0.3);
+    transform: translateY(-4px);
+}
+
+.speaking-card.completed {
+    border-right: 4px solid #22C55E;
+}
+
+.speaking-card-top {
+    padding: 1.2rem 1.2rem 0;
+}
+
+.speaking-card-scenario {
+    font-size: 0.7rem;
+    color: #5B8C5A;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.speaking-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.speaking-card-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Dialog Preview */
+.speaking-dialog-preview {
+    padding: 1rem 1.2rem;
+    background: rgba(91,140,90,0.03);
+    margin: 0.8rem 0;
+    border-top: 1px dashed var(--border);
+    border-bottom: 1px dashed var(--border);
+}
+
+.dialog-line {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    align-items: flex-start;
+}
+
+.dialog-line:last-child { margin-bottom: 0; }
+
+.dialog-speaker {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #5B8C5A;
+    min-width: 50px;
+    padding-top: 0.15rem;
+}
+
+.dialog-text {
+    flex: 1;
+}
+
+.dialog-ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.dialog-fa {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Card Footer */
+.speaking-card-footer {
+    padding: 0.8rem 1.2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.speaking-card-btn {
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-family: 'Vazirmatn', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.speaking-card-btn.start {
+    background: rgba(91,140,90,0.1);
+    color: #5B8C5A;
+}
+
+.speaking-card-btn.start:hover {
+    background: #5B8C5A;
+    color: white;
+}
+
+.speaking-card-btn.continue {
+    background: #E8F5E9;
+    color: #22C55E;
+}
+
+.speaking-card-btn.continue:hover {
+    background: #22C55E;
+    color: white;
+}
+
+.speaking-card-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.speaking-card-status.completed { color: #22C55E; }
+.speaking-card-status.pending { color: var(--text-muted); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .speaking-hero { padding: 3rem 0 2rem; }
+    .lessons-grid-speaking { grid-template-columns: 1fr; }
+}

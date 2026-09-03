@@ -1,0 +1,910 @@
+/* ==========================================
+   HANGUL COURSE - DUOLINGO STYLE
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* ===== RESET ===== */
+.hangul-course * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hangul-course {
+    font-family: 'Vazirmatn', 'Nunito', system-ui, sans-serif;
+    background: #f7f9fc;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== HERO BANNER ===== */
+.hangul-hero-banner {
+    position: relative;
+    background: linear-gradient(135deg, #FF6B8A 0%, #FF4D6D 50%, #E85D7A 100%);
+    padding: 40px 24px 50px;
+    text-align: center;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+    border-radius: 0 0 40px 40px;
+    box-shadow: 0 8px 40px rgba(255, 107, 138, 0.25);
+}
+
+.hangul-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    animation: floatBanner 20s ease-in-out infinite;
+}
+
+.hangul-hero-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    animation: floatBanner 15s ease-in-out infinite reverse;
+}
+
+@keyframes floatBanner {
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+}
+
+.hangul-hero-banner .content {
+    position: relative;
+    z-index: 1;
+}
+
+.hangul-hero-banner .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 6px 18px;
+    border-radius: 50px;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 12px;
+}
+
+.hangul-hero-banner .badge .dot {
+    width: 8px;
+    height: 8px;
+    background: #22C55E;
+    border-radius: 50%;
+    animation: pulseDot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+.hangul-hero-banner h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4px;
+}
+
+.hangul-hero-banner h1 .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: block;
+    font-size: 42px;
+    letter-spacing: 4px;
+}
+
+.hangul-hero-banner p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.hangul-hero-banner .stats {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.hangul-hero-banner .stat-item {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    padding: 8px 18px;
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hangul-hero-banner .stat-item i {
+    font-size: 16px;
+}
+
+/* ===== PROGRESS BAR ===== */
+.hangul-progress-section {
+    max-width: 800px;
+    margin: -20px auto 16px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hangul-progress-card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f2f5;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hangul-progress-card .ring {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.hangul-progress-card .ring svg {
+    transform: rotate(-90deg);
+}
+
+.hangul-progress-card .ring .bg {
+    fill: none;
+    stroke: #e5e7eb;
+    stroke-width: 6;
+}
+
+.hangul-progress-card .ring .fill {
+    fill: none;
+    stroke: #FF6B8A;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.2s ease;
+}
+
+.hangul-progress-card .ring .percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: 900;
+    color: #FF6B8A;
+}
+
+.hangul-progress-card .info {
+    flex: 1;
+}
+
+.hangul-progress-card .info h3 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1a1a2e;
+}
+
+.hangul-progress-card .info p {
+    font-size: 13px;
+    color: #8b8fa3;
+}
+
+.hangul-progress-card .unit-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.hangul-progress-card .unit-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.hangul-progress-card .unit-dots .dot.done {
+    background: #22C55E;
+    border-color: #22C55E;
+}
+
+.hangul-progress-card .unit-dots .dot.active {
+    border-color: #FF6B8A;
+    animation: pulseDot 1.5s ease-in-out infinite;
+}
+
+/* ===== PATH SECTION ===== */
+.hangul-path-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8px 20px 60px;
+    position: relative;
+}
+
+.hangul-learning-path {
+    position: relative;
+    min-height: 600px;
+    padding: 20px 0;
+}
+
+/* ===== SVG CURVED PATH ===== */
+.hangul-path-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hangul-path-svg path {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.hangul-path-svg path.inactive {
+    stroke: #d1d5db;
+    stroke-width: 3;
+}
+
+.hangul-path-svg path.active {
+    stroke: url(#pathGradient);
+    stroke-width: 4;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    animation: drawPath 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    filter: drop-shadow(0 2px 4px rgba(255, 107, 138, 0.3));
+}
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ===== NODE ===== */
+.hangul-path-node {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+    animation: nodeAppear 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.hangul-path-node:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.hangul-path-node:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.hangul-path-node:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.hangul-path-node:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes nodeAppear {
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ===== CHARACTER ABOVE NODE ===== */
+.hangul-node-character {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.hangul-node-character .char-3d-wrapper {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hangul-path-node:hover .hangul-node-character .char-3d-wrapper {
+    transform: scale(1.15) translateY(-4px);
+}
+
+.hangul-path-node.open .hangul-node-character .char-3d-wrapper {
+    animation: charCelebrate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes charCelebrate {
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.2) rotate(-8deg);
+    }
+    75% {
+        transform: scale(1.2) rotate(8deg);
+    }
+}
+
+/* ===== 3D BUTTON ===== */
+.hangul-btn-3d {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-family: 'Nunito', 'Vazirmatn', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+/* Available */
+.hangul-btn-3d.available {
+    background: linear-gradient(145deg, #ffffff, #f0f2f5);
+    box-shadow: 0 10px 0 #cbd5e1, 0 8px 0 #b0b8c4, 0 12px 30px rgba(0, 0, 0, 0.12),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.04), inset 0 4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.hangul-btn-3d.available::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1));
+    pointer-events: none;
+}
+
+.hangul-btn-3d.available::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 107, 138, 0.15), transparent 70%);
+    z-index: -1;
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.hangul-btn-3d.available:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 14px 0 #cbd5e1, 0 12px 0 #b0b8c4, 0 20px 40px rgba(255, 107, 138, 0.2),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.04), inset 0 4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.hangul-btn-3d.available:active {
+    transform: translateY(4px) scale(0.95);
+    box-shadow: 0 4px 0 #cbd5e1, 0 2px 0 #b0b8c4, 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Completed */
+.hangul-btn-3d.completed {
+    background: linear-gradient(145deg, #FF6B8A, #E85D7A);
+    box-shadow: 0 10px 0 #c0392b, 0 8px 0 #a93226, 0 12px 30px rgba(255, 107, 138, 0.3),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.1), inset 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.hangul-btn-3d.completed::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+    pointer-events: none;
+}
+
+.hangul-btn-3d.completed:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 14px 0 #c0392b, 0 12px 0 #a93226, 0 20px 40px rgba(255, 107, 138, 0.35);
+}
+
+/* Locked */
+.hangul-btn-3d.locked {
+    background: linear-gradient(145deg, #e5e7eb, #d1d5db);
+    box-shadow: 0 8px 0 #9ca3af, 0 6px 0 #7a828e, 0 10px 20px rgba(0, 0, 0, 0.06);
+    cursor: not-allowed;
+    filter: saturate(0.4);
+}
+
+.hangul-btn-3d.locked::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05));
+    pointer-events: none;
+}
+
+.hangul-btn-3d .icon {
+    font-size: 30px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.hangul-btn-3d.completed .icon {
+    font-size: 24px;
+    color: white;
+}
+
+.hangul-btn-3d.locked .icon {
+    opacity: 0.4;
+    font-size: 24px;
+}
+
+.hangul-btn-3d .label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #1a1a2e;
+    letter-spacing: -0.3px;
+    position: relative;
+    z-index: 1;
+    margin-top: -2px;
+}
+
+.hangul-btn-3d.completed .label {
+    color: white;
+}
+
+.hangul-btn-3d.locked .label {
+    color: #6b7280;
+}
+
+.hangul-btn-3d .xp-badge {
+    font-size: 8px;
+    font-weight: 800;
+    color: #d97706;
+    background: #fef9e7;
+    padding: 0px 8px;
+    border-radius: 50px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.hangul-btn-3d.completed .xp-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.hangul-btn-3d .checkmark {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 3;
+    animation: checkPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes checkPop {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.hangul-btn-3d .lock-icon {
+    position: absolute;
+    bottom: -2px;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+/* ===== NODE LABEL ===== */
+.hangul-node-label {
+    margin-top: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.hangul-node-label .title {
+    font-weight: 900;
+    font-size: 15px;
+    color: #1a1a2e;
+    line-height: 1.2;
+}
+
+.hangul-node-label .subtitle {
+    font-size: 11px;
+    color: #8b8fa3;
+    font-weight: 600;
+}
+
+/* ===== NODE CHILDREN (Lesson/Practice/Quiz) ===== */
+.hangul-node-children {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 20px);
+    transform: translateY(-50%);
+    display: none;
+    gap: 8px;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.hangul-path-node.open .hangul-node-children {
+    display: flex;
+    animation: childrenSlide 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes childrenSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-10px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0) scale(1);
+    }
+}
+
+.hangul-btn-child {
+    width: 80px;
+    height: 56px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Nunito', 'Vazirmatn', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.hangul-btn-child:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.hangul-btn-child:active {
+    transform: translateY(2px) scale(0.95);
+}
+
+.hangul-btn-child .child-icon {
+    font-size: 16px;
+}
+
+.hangul-btn-child .child-label {
+    font-size: 8px;
+    opacity: 0.9;
+}
+
+.hangul-btn-child.lesson {
+    background: linear-gradient(135deg, #FF6B8A, #E85D7A);
+}
+
+.hangul-btn-child.practice {
+    background: linear-gradient(135deg, #4A90D9, #2D6FA8);
+}
+
+.hangul-btn-child.quiz {
+    background: linear-gradient(135deg, #F59E0B, #D97706);
+}
+
+.hangul-btn-child .check-small {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 12px;
+    background: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== POSITIONING ===== */
+.hangul-path-node:nth-child(odd) {
+    transform-origin: center right;
+}
+.hangul-path-node:nth-child(even) {
+    transform-origin: center left;
+}
+
+/* ===== TOAST ===== */
+.hangul-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1a1a2e;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 14px;
+    z-index: 999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 4px solid #FF6B8A;
+    font-family: 'Vazirmatn', 'Nunito', sans-serif;
+}
+
+.hangul-toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.hangul-toast.success {
+    border-bottom-color: #22C55E;
+}
+.hangul-toast.info {
+    border-bottom-color: #4A90D9;
+}
+.hangul-toast.error {
+    border-bottom-color: #EF4444;
+}
+
+/* ===== DARK MODE ===== */
+body.night .hangul-hero-banner {
+    background: linear-gradient(135deg, #6B2D5A 0%, #4A1A3F 50%, #2D1540 100%);
+}
+
+body.night .hangul-progress-card {
+    background: #1a1a2e;
+    border-color: #2d2d40;
+}
+
+body.night .hangul-progress-card .info h3 {
+    color: white;
+}
+
+body.night .hangul-progress-card .info p {
+    color: #8b8fa3;
+}
+
+body.night .hangul-btn-3d.available {
+    background: linear-gradient(145deg, #2d2d40, #1a1a2e);
+    box-shadow: 0 10px 0 #1a1a2e, 0 8px 0 #0f0f1a, 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.night .hangul-btn-3d.available .label {
+    color: white;
+}
+
+body.night .hangul-btn-3d.available .icon {
+    filter: none;
+}
+
+body.night .hangul-btn-3d.locked {
+    background: linear-gradient(145deg, #2d2d40, #1a1a2e);
+    box-shadow: 0 8px 0 #0f0f1a, 0 6px 0 #0a0a12;
+}
+
+body.night .hangul-node-label .title {
+    color: white;
+}
+
+body.night .hangul-node-label .subtitle {
+    color: #6b7280;
+}
+
+body.night .hangul-path-svg path.inactive {
+    stroke: #2d2d40;
+}
+
+body.night .hangul-btn-child {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.night .hangul-toast {
+    background: #1a1a2e;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+    .hangul-btn-3d {
+        width: 76px;
+        height: 76px;
+    }
+    .hangul-btn-3d .icon {
+        font-size: 24px;
+    }
+    .hangul-btn-3d .label {
+        font-size: 8px;
+    }
+    .hangul-btn-3d .xp-badge {
+        font-size: 7px;
+        padding: 0 6px;
+    }
+    .hangul-btn-3d .checkmark {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        top: -4px;
+        right: -4px;
+    }
+    .hangul-btn-3d.locked .icon {
+        font-size: 18px;
+    }
+    .hangul-btn-3d.completed .icon {
+        font-size: 18px;
+    }
+    .hangul-node-label .title {
+        font-size: 12px;
+    }
+    .hangul-node-label .subtitle {
+        font-size: 9px;
+    }
+    .hangul-node-children {
+        left: calc(100% + 10px);
+        gap: 4px;
+    }
+    .hangul-btn-child {
+        width: 60px;
+        height: 44px;
+        font-size: 8px;
+        border-radius: 12px;
+    }
+    .hangul-btn-child .child-icon {
+        font-size: 13px;
+    }
+    .hangul-btn-child .child-label {
+        font-size: 7px;
+    }
+    .hangul-btn-child .check-small {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+    }
+    .hangul-hero-banner h1 {
+        font-size: 26px;
+    }
+    .hangul-hero-banner h1 .ko {
+        font-size: 32px;
+    }
+    .hangul-progress-card {
+        padding: 14px 16px;
+    }
+    .hangul-progress-card .ring {
+        width: 48px;
+        height: 48px;
+    }
+    .hangul-path-svg path {
+        stroke-width: 3 !important;
+    }
+    .hangul-node-character .char-3d-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+    .hangul-node-character {
+        top: -42px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hangul-btn-3d {
+        width: 60px;
+        height: 60px;
+    }
+    .hangul-btn-3d .icon {
+        font-size: 18px;
+    }
+    .hangul-btn-3d .label {
+        font-size: 7px;
+    }
+    .hangul-btn-3d .xp-badge {
+        display: none;
+    }
+    .hangul-btn-3d .checkmark {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+        top: -3px;
+        right: -3px;
+    }
+    .hangul-node-label .title {
+        font-size: 10px;
+    }
+    .hangul-node-label .subtitle {
+        font-size: 8px;
+    }
+    .hangul-btn-child {
+        width: 48px;
+        height: 36px;
+        font-size: 7px;
+        border-radius: 10px;
+    }
+    .hangul-btn-child .child-icon {
+        font-size: 11px;
+    }
+    .hangul-btn-child .child-label {
+        font-size: 6px;
+    }
+    .hangul-btn-child .check-small {
+        width: 12px;
+        height: 12px;
+        font-size: 6px;
+        top: -3px;
+        right: -3px;
+    }
+    .hangul-node-character .char-3d-wrapper {
+        width: 32px;
+        height: 32px;
+    }
+    .hangul-node-character {
+        top: -36px;
+    }
+}

@@ -1,0 +1,514 @@
+/* ==========================================
+   BLOG SECTION - ATLAS KOREAN · نسخه لوکس
+   ========================================== */
+
+.blog-section {
+    padding: 5rem 0;
+    background: var(--bg);
+    position: relative;
+}
+
+/* ==========================================
+   CONTAINER
+   ========================================== */
+.blog-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.blog-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.blog-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1.5rem;
+    border-radius: 50px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    border: 1px solid rgba(124,58,237,0.1);
+}
+
+.blog-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.2;
+}
+
+.blog-title .highlight {
+    background: linear-gradient(135deg, var(--accent), var(--river));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.blog-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* ==========================================
+   GRID
+   ========================================== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.8rem;
+}
+
+/* ==========================================
+   CARD
+   ========================================== */
+.blog-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: blogFadeUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    border-color: transparent;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+body.night .blog-card:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes blogFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   CARD IMAGE
+   ========================================== */
+.blog-card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: var(--border);
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+    transform: scale(1.06);
+}
+
+.blog-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.15));
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.blog-card-emoji {
+    font-size: 2.2rem;
+    opacity: 0.8;
+    animation: emojiFloat 3s ease-in-out infinite;
+}
+
+@keyframes emojiFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ==========================================
+   CATEGORY BADGE
+   ========================================== */
+.blog-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: white;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    z-index: 2;
+}
+
+.blog-category.kdrama { background: #EF4444; }
+.blog-category.kpop { background: #F59E0B; }
+.blog-category.slang { background: #3B82F6; }
+.blog-category.history { background: #22C55E; }
+.blog-category.culture { background: #06B6D4; }
+.blog-category.learning { background: #8B5CF6; }
+
+/* ==========================================
+   CARD BODY
+   ========================================== */
+.blog-card-body {
+    padding: 1.2rem 1.5rem 1.5rem;
+}
+
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+}
+
+.blog-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.blog-meta-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.blog-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+.blog-card:hover .blog-card-title {
+    color: var(--accent);
+}
+
+.blog-card-excerpt {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==========================================
+   TAGS
+   ========================================== */
+.blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.blog-tag {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ==========================================
+   READ MORE
+   ========================================== */
+.blog-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: gap 0.3s;
+}
+
+.blog-read-more:hover {
+    gap: 0.7rem;
+}
+
+/* ==========================================
+   VIEW ALL
+   ========================================== */
+.blog-footer {
+    text-align: center;
+    margin-top: 2.8rem;
+}
+
+.blog-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 2rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--accent), var(--river));
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.25);
+}
+
+.blog-view-all:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(124,58,237,0.35);
+}
+
+.blog-count {
+    background: rgba(255,255,255,0.2);
+    padding: 0.1rem 0.6rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+}
+
+/* ==========================================
+   MODAL
+   ========================================== */
+.blog-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+}
+
+.blog-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.blog-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    background: var(--card);
+    border-radius: 24px;
+    padding: 2.5rem;
+    max-width: 680px;
+    width: 94%;
+    max-height: 88vh;
+    overflow-y: auto;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid var(--border);
+}
+
+.blog-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.blog-modal-close {
+    position: sticky;
+    float: right;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 10;
+    margin-bottom: 0.5rem;
+}
+
+.blog-modal-close:hover {
+    background: #EF4444;
+    color: white;
+    transform: rotate(90deg);
+    border-color: #EF4444;
+}
+
+.blog-modal-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 1.2rem;
+}
+
+.blog-modal-category {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.6rem;
+}
+
+.blog-modal-category.kdrama { background: #EF4444; }
+.blog-modal-category.kpop { background: #F59E0B; }
+.blog-modal-category.slang { background: #3B82F6; }
+.blog-modal-category.history { background: #22C55E; }
+.blog-modal-category.culture { background: #06B6D4; }
+.blog-modal-category.learning { background: #8B5CF6; }
+
+.blog-modal-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.blog-modal-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+}
+
+.blog-modal-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.blog-modal-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 2.1;
+}
+
+.blog-modal-text p {
+    margin-bottom: 1rem;
+}
+.blog-modal-text strong {
+    color: var(--text);
+}
+
+/* ==========================================
+   SCROLLBAR
+   ========================================== */
+.blog-modal::-webkit-scrollbar {
+    width: 4px;
+}
+.blog-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+.blog-modal::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 3rem 0;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .blog-card-image {
+        height: 180px;
+    }
+
+    .blog-modal {
+        padding: 1.5rem;
+        width: 96%;
+        max-height: 92vh;
+    }
+
+    .blog-modal-img {
+        height: 160px;
+    }
+
+    .blog-modal-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-card-image {
+        height: 150px;
+    }
+
+    .blog-card-body {
+        padding: 1rem;
+    }
+
+    .blog-card-title {
+        font-size: 0.9rem;
+    }
+
+    .blog-modal {
+        padding: 1rem;
+    }
+
+    .blog-modal-img {
+        height: 130px;
+        border-radius: 12px;
+    }
+}
+
+/* ==========================================
+   NIGHT MODE
+   ========================================== */
+body.night .blog-card {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .blog-modal {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .blog-modal-close {
+    background: var(--card);
+    border-color: rgba(255,255,255,0.1);
+}
