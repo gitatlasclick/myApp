@@ -1,0 +1,339 @@
+/* ==========================================
+   COLLOCATION COURSE - 아틀라스 한글 (ACADEMIC)
+   ========================================== */
+
+.collocation-hero {
+    background: linear-gradient(135deg, #F0F7FF 0%, #F5F9FF 50%, #E8F1FE 100%);
+    padding: 5rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+body.night .collocation-hero {
+    background: linear-gradient(135deg, #101830 0%, #152040 50%, #0A1030 100%);
+}
+
+.collocation-hero::before {
+    content: '연어';
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16rem;
+    font-weight: 900;
+    color: #4A90D9;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.collocation-hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .collocation-hero .container { grid-template-columns: 1fr; }
+}
+
+.collocation-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(74,144,217,0.1);
+    color: #4A90D9;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(74,144,217,0.2);
+}
+
+.collocation-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.collocation-hero-title .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #4A90D9;
+    display: block;
+    font-size: 2rem;
+}
+
+.collocation-hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.collocation-hero-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.collocation-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.collocation-stat i { color: #4A90D9; }
+
+/* Progress */
+.collocation-hero-progress {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Tabs */
+.course-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.course-tab {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s;
+}
+
+.course-tab:hover { color: #4A90D9; }
+.course-tab.active { color: #4A90D9; border-bottom-color: #4A90D9; }
+
+/* Level Badge */
+.level-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.level-badge.beginner { background: #E8F5E9; color: #22C55E; }
+.level-badge.intermediate { background: #FFF8E1; color: #F59E0B; }
+.level-badge.advanced { background: #FEE2E2; color: #EF4444; }
+
+/* Level Section */
+.level-section {
+    margin-bottom: 2.5rem;
+}
+
+.level-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.level-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.l-icon-beginner { background: rgba(34,197,94,0.1); color: #22C55E; }
+.l-icon-intermediate { background: rgba(245,158,11,0.1); color: #F59E0B; }
+.l-icon-advanced { background: rgba(239,68,68,0.1); color: #EF4444; }
+
+.level-info { flex: 1; }
+.level-korean { font-family: 'Noto Sans KR', sans-serif; font-size: 0.85rem; color: #4A90D9; font-weight: 600; }
+.level-title { font-weight: 800; color: var(--text); font-size: 1.1rem; }
+.level-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+.level-progress-mini {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Lesson Grid */
+.lessons-grid-collocation {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 400px) {
+    .lessons-grid-collocation { grid-template-columns: 1fr; }
+}
+
+/* Lesson Card */
+.lesson-card-collocation {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.lesson-card-collocation:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(74,144,217,0.3);
+    transform: translateY(-4px);
+}
+
+.lesson-card-collocation.completed {
+    border-right: 4px solid #22C55E;
+}
+
+/* Card Top */
+.lesson-card-top {
+    padding: 1.2rem 1.2rem 0;
+}
+
+.lesson-card-category {
+    font-size: 0.7rem;
+    color: #4A90D9;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.lesson-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.lesson-card-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Card Body */
+.lesson-card-body {
+    padding: 0.8rem 1.2rem;
+    flex: 1;
+}
+
+.lesson-card-pair {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.lesson-card-korean {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #4A90D9;
+}
+
+.lesson-card-romaji {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.lesson-card-meaning {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Card Footer */
+.lesson-card-footer {
+    padding: 0.8rem 1.2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lesson-card-btn {
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-family: 'Vazirmatn', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.lesson-card-btn.start {
+    background: rgba(74,144,217,0.1);
+    color: #4A90D9;
+}
+
+.lesson-card-btn.start:hover {
+    background: #4A90D9;
+    color: white;
+}
+
+.lesson-card-btn.continue {
+    background: #E8F5E9;
+    color: #22C55E;
+}
+
+.lesson-card-btn.continue:hover {
+    background: #22C55E;
+    color: white;
+}
+
+.lesson-card-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.lesson-card-status.completed { color: #22C55E; }
+.lesson-card-status.pending { color: var(--text-muted); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .collocation-hero { padding: 3rem 0 2rem; }
+    .lessons-grid-collocation { grid-template-columns: 1fr; }
+}

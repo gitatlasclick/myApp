@@ -1,0 +1,448 @@
+/* ==========================================
+   GRAMMAR COURSE - 아틀라스 한글
+   ========================================== */
+
+.grammar-hero {
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFF0F0 50%, #FFE8E8 100%);
+    padding: 5rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+body.night .grammar-hero {
+    background: linear-gradient(135deg, #1A1030 0%, #2D1540 50%, #0F0C29 100%);
+}
+
+.grammar-hero::before {
+    content: '문법';
+    position: absolute;
+    top: -50px;
+    right: -30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18rem;
+    font-weight: 900;
+    color: #D64B3F;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.grammar-hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .grammar-hero .container { grid-template-columns: 1fr; }
+}
+
+.grammar-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(214,75,63,0.1);
+    color: #D64B3F;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(214,75,63,0.2);
+}
+
+.grammar-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.grammar-hero-title .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #D64B3F;
+    display: block;
+    font-size: 2rem;
+}
+
+.grammar-hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.grammar-hero-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.grammar-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.grammar-stat i { color: #D64B3F; }
+
+/* Progress Card */
+.grammar-hero-progress {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.progress-circle {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.progress-circle svg { transform: rotate(-90deg); }
+.progress-circle .bg { fill: none; stroke: var(--border); stroke-width: 10; }
+.progress-circle .fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1.8s ease; }
+.progress-circle .percent-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #D64B3F;
+}
+
+.progress-info-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.progress-mini-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-mini-fill {
+    height: 100%;
+    background: #D64B3F;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* Course Tabs */
+.course-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.course-tab {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s;
+}
+
+.course-tab:hover { color: #D64B3F; }
+.course-tab.active { color: #D64B3F; border-bottom-color: #D64B3F; }
+.course-tab i { margin-left: 0.3rem; }
+
+/* Level Badge */
+.level-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.level-badge.beginner { background: #E8F5E9; color: #22C55E; }
+.level-badge.intermediate { background: #FFF8E1; color: #F59E0B; }
+.level-badge.advanced { background: #FEE2E2; color: #EF4444; }
+
+/* Grammar Unit Card */
+.grammar-unit-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+}
+
+.grammar-unit-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(214,75,63,0.2);
+}
+
+.grammar-unit-card.open {
+    border-color: rgba(214,75,63,0.3);
+}
+
+.grammar-unit-header {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.grammar-unit-header:hover { background: rgba(214,75,63,0.03); }
+
+.grammar-unit-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.g-icon-beginner { background: rgba(34,197,94,0.1); color: #22C55E; }
+.g-icon-intermediate { background: rgba(245,158,11,0.1); color: #F59E0B; }
+.g-icon-advanced { background: rgba(239,68,68,0.1); color: #EF4444; }
+
+.grammar-unit-info { flex: 1; min-width: 0; }
+.grammar-unit-level { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+.grammar-unit-korean { font-family: 'Noto Sans KR', sans-serif; font-size: 0.8rem; color: #D64B3F; font-weight: 600; }
+.grammar-unit-title { font-weight: 800; color: var(--text); font-size: 1rem; }
+.grammar-unit-count { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+.grammar-unit-status { flex-shrink: 0; font-size: 1.4rem; }
+.grammar-unit-status.completed { color: #22C55E; }
+.grammar-unit-status.incomplete { color: var(--border); }
+
+.grammar-unit-chevron {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    transition: transform 0.3s;
+}
+.grammar-unit-card.open .grammar-unit-chevron { transform: rotate(180deg); }
+
+.grammar-unit-body {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+}
+.grammar-unit-card.open .grammar-unit-body { display: block; }
+
+/* Grammar Concept Card */
+.grammar-concept-card {
+    background: linear-gradient(135deg, rgba(214,75,63,0.03), rgba(214,75,63,0.01));
+    border: 1px solid rgba(214,75,63,0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.grammar-concept-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #D64B3F;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.grammar-concept-title i { font-size: 1rem; }
+
+.grammar-formula-box {
+    background: var(--card);
+    border: 2px solid rgba(214,75,63,0.15);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-family: 'Noto Sans KR', 'Vazirmatn', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.grammar-examples-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grammar-example-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+}
+
+.grammar-example-ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #D64B3F;
+    font-weight: 700;
+    min-width: 150px;
+    font-size: 0.95rem;
+}
+
+.grammar-example-fa {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.grammar-example-romaji {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-right: auto;
+}
+
+/* Lessons inside unit */
+.grammar-lessons-list {
+    margin-top: 1rem;
+}
+
+.grammar-lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    background: var(--bg);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 0.4rem;
+}
+
+.grammar-lesson-item:hover {
+    background: rgba(214,75,63,0.05);
+    border-color: rgba(214,75,63,0.15);
+    transform: translateX(-5px);
+}
+
+.grammar-lesson-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.grammar-lesson-icon.done { background: #E8F5E9; color: #22C55E; }
+.grammar-lesson-icon.current { background: rgba(214,75,63,0.1); color: #D64B3F; }
+
+.grammar-lesson-info { flex: 1; min-width: 0; }
+.grammar-lesson-title { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+.grammar-lesson-subtitle { font-size: 0.72rem; color: var(--text-muted); }
+
+.grammar-lesson-btn {
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-family: 'Vazirmatn', sans-serif;
+    white-space: nowrap;
+}
+
+.grammar-lesson-btn.start { background: rgba(214,75,63,0.1); color: #D64B3F; }
+.grammar-lesson-btn.start:hover { background: #D64B3F; color: white; }
+.grammar-lesson-btn.review { background: #E8F5E9; color: #22C55E; }
+.grammar-lesson-btn.review:hover { background: #22C55E; color: white; }
+
+/* Quick Quiz */
+.grammar-quick-quiz {
+    background: #FFF8E1;
+    border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 16px;
+    padding: 1.2rem;
+    margin-top: 1rem;
+}
+
+body.night .grammar-quick-quiz {
+    background: #2D2510;
+    border-color: rgba(245,158,11,0.3);
+}
+
+.grammar-quick-quiz h4 {
+    font-weight: 700;
+    color: #92400E;
+    margin-bottom: 0.75rem;
+}
+
+body.night .grammar-quick-quiz h4 { color: #FCD34D; }
+
+.grammar-quiz-options {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.grammar-quiz-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    border: 2px solid rgba(245,158,11,0.3);
+    background: var(--card);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.grammar-quiz-btn:hover { border-color: #F59E0B; color: #F59E0B; }
+.grammar-quiz-btn.correct { background: #22C55E; color: white; border-color: #22C55E; }
+.grammar-quiz-btn.wrong { background: #EF4444; color: white; border-color: #EF4444; }
+
+.grammar-quiz-feedback {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: none;
+}
+.grammar-quiz-feedback.show { display: block; }
+.grammar-quiz-feedback.correct { color: #22C55E; }
+.grammar-quiz-feedback.wrong { color: #EF4444; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grammar-hero { padding: 3rem 0 2rem; }
+    .grammar-example-row { flex-direction: column; align-items: flex-start; }
+    .grammar-example-ko { min-width: auto; }
+    .grammar-lesson-item { flex-wrap: wrap; }
+    .grammar-lesson-btn { width: 100%; text-align: center; }
+}

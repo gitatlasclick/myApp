@@ -1,0 +1,550 @@
+/* ==========================================
+   COURSE PAGE - 아틀라스 한글
+   ========================================== */
+
+/* Page Hero */
+.page-hero {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--accent-light), var(--bg));
+    border-bottom: 1px solid var(--border);
+}
+
+.page-hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.page-hero-content {
+    flex: 1;
+    min-width: 280px;
+}
+
+.page-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255,107,138,0.2);
+}
+
+.page-hero-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.page-hero-title .korean {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--accent);
+    display: block;
+    font-size: 1.8rem;
+}
+
+.page-hero-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    line-height: 1.8;
+}
+
+.page-hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.page-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.page-stat i {
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+/* Progress Ring (Hero) */
+.page-hero-progress {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.progress-ring-large {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 0 auto 0.5rem;
+}
+
+.progress-ring-large svg {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-large .bg {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 8;
+}
+
+.progress-ring-large .fill {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.8s ease;
+}
+
+.progress-ring-large .percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--accent);
+}
+
+/* Course Layout */
+.course-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .course-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar */
+.course-sidebar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: sticky;
+    top: calc(var(--nav-height) + 2rem);
+}
+
+.course-sidebar h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Lesson List */
+.lesson-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.lesson-item:hover {
+    background: var(--accent-light);
+    border-color: rgba(255,107,138,0.15);
+}
+
+.lesson-item.active {
+    background: var(--accent-light);
+    border-color: var(--accent);
+}
+
+.lesson-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.lesson-item.active .lesson-num {
+    background: var(--accent);
+    color: white;
+}
+
+.lesson-item.completed .lesson-num {
+    background: #22C55E;
+    color: white;
+}
+
+.lesson-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.lesson-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+}
+
+.lesson-duration {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.lesson-status-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.lesson-status-icon .fa-check-circle { color: #22C55E; }
+.lesson-status-icon .fa-circle { color: var(--border); }
+
+/* Resources */
+.course-resources {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+.course-resources h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.resource-link:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.resource-link i {
+    color: var(--accent);
+}
+
+/* Main Content */
+.course-content-section {
+    padding: 2rem 0;
+}
+
+/* Lesson Content Card */
+.lesson-content-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-content-card h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lesson-content-card h2 .lesson-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.lesson-content-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 1.5rem 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lesson-content-card p {
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+}
+
+/* Korean Char Display */
+.korean-chars-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.korean-char-item {
+    background: var(--accent-light);
+    border: 1px solid rgba(255,107,138,0.15);
+    border-radius: 14px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 80px;
+}
+
+.korean-char-item:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255,107,138,0.2);
+}
+
+.korean-char-item .char {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    display: block;
+    line-height: 1.3;
+}
+
+.korean-char-item .romaji {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.korean-char-item:hover .romaji {
+    color: rgba(255,255,255,0.8);
+}
+
+/* Examples */
+.example-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+}
+
+.example-box h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.example-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.example-row:last-child {
+    border-bottom: none;
+}
+
+.example-korean {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 100px;
+}
+
+.example-meaning {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Tip Box */
+.tip-box {
+    background: #FFF8E1;
+    border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 14px;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.tip-box i {
+    color: #F59E0B;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.tip-box p {
+    color: #92400E;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+body.night .tip-box {
+    background: #2D2510;
+    border-color: rgba(245,158,11,0.3);
+}
+
+body.night .tip-box p {
+    color: #FCD34D;
+}
+
+/* Practice Section */
+.practice-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.practice-question {
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.practice-options {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.practice-btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--border);
+    background: var(--card);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.practice-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.practice-btn.correct {
+    background: #22C55E;
+    color: white;
+    border-color: #22C55E;
+}
+
+.practice-btn.wrong {
+    background: #EF4444;
+    color: white;
+    border-color: #EF4444;
+}
+
+/* Navigation */
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.nav-lesson-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.nav-lesson-prev {
+    background: var(--bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.nav-lesson-prev:hover {
+    background: var(--border);
+}
+
+.nav-lesson-next {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,107,138,0.2);
+}
+
+.nav-lesson-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,107,138,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 2rem 0;
+    }
+    
+    .lesson-content-card {
+        padding: 1.2rem;
+    }
+    
+    .korean-char-item {
+        min-width: 60px;
+        padding: 0.75rem 1rem;
+    }
+    
+    .korean-char-item .char {
+        font-size: 1.5rem;
+    }
+}

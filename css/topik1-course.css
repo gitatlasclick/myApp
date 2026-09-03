@@ -1,0 +1,308 @@
+/* ==========================================
+   TOPIK I COURSE - 아틀라스 한글
+   ========================================== */
+
+.topik1-hero {
+    background: linear-gradient(135deg, #F0FAFF 0%, #F5FCFF 50%, #E0F5FF 100%);
+    padding: 5rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+body.night .topik1-hero {
+    background: linear-gradient(135deg, #101820 0%, #152530 50%, #0A1820 100%);
+}
+
+.topik1-hero::before {
+    content: 'TOPIK';
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14rem;
+    font-weight: 900;
+    color: #00D2FF;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.topik1-hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .topik1-hero .container { grid-template-columns: 1fr; }
+}
+
+.topik1-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(0,210,255,0.1);
+    color: #00D2FF;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0,210,255,0.2);
+}
+
+.topik1-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.topik1-hero-title .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #00D2FF;
+    display: block;
+    font-size: 2rem;
+}
+
+.topik1-hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.topik1-hero-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.topik1-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.topik1-stat i { color: #00D2FF; }
+
+/* Progress */
+.topik1-hero-progress {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.progress-circle {
+    width: 140px; height: 140px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.progress-circle svg { transform: rotate(-90deg); }
+.progress-circle .bg { fill: none; stroke: var(--border); stroke-width: 10; }
+.progress-circle .fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1.8s ease; }
+.progress-circle .percent-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #00D2FF;
+}
+
+/* Section Tabs */
+.section-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.section-tab {
+    padding: 0.7rem 1.3rem;
+    border: none;
+    background: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s;
+}
+
+.section-tab:hover { color: #00D2FF; }
+.section-tab.active { color: #00D2FF; border-bottom-color: #00D2FF; }
+
+/* Exam Section Card */
+.exam-section-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.exam-section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.exam-section-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.t1-icon-listening { background: rgba(0,210,255,0.1); color: #00D2FF; }
+.t1-icon-reading { background: rgba(74,144,217,0.1); color: #4A90D9; }
+.t1-icon-vocab { background: rgba(196,149,106,0.1); color: #C4956A; }
+
+.exam-section-info { flex: 1; }
+.exam-section-korean { font-family: 'Noto Sans KR', sans-serif; font-size: 0.85rem; color: #00D2FF; font-weight: 600; }
+.exam-section-title { font-weight: 800; color: var(--text); font-size: 1.15rem; }
+.exam-section-subtitle { font-size: 0.82rem; color: var(--text-muted); }
+
+/* Lesson Items */
+.topik-lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.topik-lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: var(--bg);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.topik-lesson-item:hover {
+    background: rgba(0,210,255,0.04);
+    border-color: rgba(0,210,255,0.2);
+    transform: translateX(-4px);
+}
+
+.topik-lesson-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.topik-lesson-icon.done { background: #E8F5E9; color: #22C55E; }
+.topik-lesson-icon.current { background: rgba(0,210,255,0.1); color: #00D2FF; }
+.topik-lesson-icon.quiz { background: rgba(245,158,11,0.1); color: #F59E0B; }
+
+.topik-lesson-info { flex: 1; min-width: 0; }
+.topik-lesson-title { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.topik-lesson-desc { font-size: 0.73rem; color: var(--text-muted); }
+
+.topik-lesson-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.topik-lesson-btn {
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-family: 'Vazirmatn', sans-serif;
+    white-space: nowrap;
+}
+
+.topik-lesson-btn.start { background: rgba(0,210,255,0.1); color: #00D2FF; }
+.topik-lesson-btn.start:hover { background: #00D2FF; color: white; }
+.topik-lesson-btn.review { background: #E8F5E9; color: #22C55E; }
+.topik-lesson-btn.review:hover { background: #22C55E; color: white; }
+
+/* Mock Test Banner */
+.mock-test-banner {
+    background: linear-gradient(135deg, #00D2FF, #4A90D9);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    margin-top: 2rem;
+}
+
+.mock-test-banner h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.mock-test-banner p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.mock-test-btn {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    background: white;
+    color: #00D2FF;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mock-test-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .topik1-hero { padding: 3rem 0 2rem; }
+    .topik-lesson-item { flex-wrap: wrap; }
+    .topik-lesson-meta { width: 100%; margin-top: 0.3rem; }
+}

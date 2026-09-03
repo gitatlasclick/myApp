@@ -1,0 +1,1063 @@
+/* ==========================================
+   STUDY ROOM - ATLAS KOREAN
+   ========================================== */
+
+.studyroom-page {
+    min-height: 100vh;
+    background: var(--bg);
+    padding: 1.5rem 1rem 6rem;
+}
+
+@media (min-width: 1025px) {
+    .studyroom-page {
+        padding-right: calc(var(--sidebar-width) + 2rem);
+    }
+}
+
+.studyroom-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+.studyroom-header {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.room-header-info h1 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.room-header-info .room-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.room-header-info .room-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.room-header-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.room-header-actions .btn {
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-join {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 20px rgba(255, 107, 138, 0.2);
+}
+
+.btn-join:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 107, 138, 0.3);
+}
+
+.btn-leave {
+    background: #EF4444;
+    color: white;
+}
+
+.btn-leave:hover {
+    background: #DC2626;
+    transform: translateY(-2px);
+}
+
+.btn-study {
+    background: #22C55E;
+    color: white;
+}
+
+.btn-study:hover {
+    background: #16A34A;
+    transform: translateY(-2px);
+}
+
+.btn-study.studying {
+    background: #F59E0B;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* ===== ROLES ===== */
+.studyroom-roles {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.role-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.role-badge .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.role-badge .role-icon {
+    font-size: 0.9rem;
+}
+
+/* ===== GRID ===== */
+.studyroom-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .studyroom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== MISSION ===== */
+.studyroom-mission {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+}
+
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.mission-header h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mission-header .mission-date {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.mission-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.mission-item:last-child {
+    border-bottom: none;
+}
+
+.mission-item .icon {
+    font-size: 1.2rem;
+}
+
+.mission-item .info {
+    flex: 1;
+}
+
+.mission-item .info .title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+.mission-item .info .desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.mission-item .progress {
+    min-width: 80px;
+}
+
+.mission-item .progress .bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.15rem;
+}
+
+.mission-item .progress .bar .fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--gradient-primary);
+    transition: width 0.6s ease;
+}
+
+.mission-item .progress .label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-align: left;
+}
+
+/* ===== STUDYING NOW ===== */
+.studyroom-studying {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+}
+
+.studying-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.studying-header h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.studying-header .count {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: var(--accent-light);
+    padding: 0.05rem 0.6rem;
+    border-radius: 12px;
+}
+
+.studying-user {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.studying-user:last-child {
+    border-bottom: none;
+}
+
+.studying-user .rank {
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-width: 30px;
+    color: var(--text-muted);
+}
+
+.studying-user .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.studying-user .name {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+.studying-user .time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.studying-user .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22C55E;
+    animation: pulse 2s infinite;
+}
+
+.studying-empty {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+}
+
+/* ===== CHALLENGE ===== */
+.studyroom-challenge {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--gold);
+}
+
+.challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.challenge-header h3 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.challenge-header .goal {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.challenge-progress {
+    margin-top: 0.6rem;
+}
+
+.challenge-progress .bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.challenge-progress .bar .fill {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--gold), #F5D78A);
+    transition: width 0.6s ease;
+}
+
+.challenge-progress .info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.challenge-completed {
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--green-light);
+    border-radius: 12px;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* ===== CHAT ===== */
+.studyroom-chat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.chat-header {
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chat-messages {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 0.8rem 1.2rem;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 4px;
+}
+.chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.chat-message .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.chat-message .content {
+    flex: 1;
+}
+
+.chat-message .content .sender {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--text);
+}
+
+.chat-message .content .sender .time {
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    margin-right: 0.3rem;
+}
+
+.chat-message .content .text {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    word-wrap: break-word;
+}
+
+.chat-message.own .content .sender {
+    color: var(--accent);
+}
+
+.chat-message.system .content .text {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.75rem;
+}
+
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.chat-input button {
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.8rem;
+}
+
+.chat-input button:hover {
+    transform: scale(1.02);
+}
+
+/* ========================================== */
+/* NIGHT MODE */
+/* ========================================== */
+
+body.night .studyroom-header,
+body.night .studyroom-roles,
+body.night .studyroom-mission,
+body.night .studyroom-studying,
+body.night .studyroom-challenge,
+body.night .studyroom-chat {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .role-badge {
+    background: var(--bg);
+}
+
+body.night .chat-input {
+    background: var(--bg);
+}
+
+body.night .chat-input input {
+    background: var(--card);
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .chat-message .content .sender {
+    color: var(--text-secondary);
+}
+
+body.night .chat-message.own .content .sender {
+    color: var(--accent);
+}
+
+/* ==========================================
+   STUDY ROOM - اضافات قدم ۳
+   ========================================== */
+
+/* ===== RANKING TABLE ===== */
+.ranking-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ranking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.ranking-header h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ranking-header .update-time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th {
+    text-align: right;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+}
+
+.ranking-table td {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+}
+
+.ranking-table tr:last-child td {
+    border-bottom: none;
+}
+
+.ranking-table .rank {
+    font-weight: 700;
+    min-width: 30px;
+    text-align: center;
+}
+
+.ranking-table .rank.gold { color: #FFD700; }
+.ranking-table .rank.silver { color: #C0C0C0; }
+.ranking-table .rank.bronze { color: #CD7F32; }
+
+.ranking-table .user-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ranking-table .user-cell .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.ranking-table .user-cell .username {
+    font-weight: 600;
+}
+
+.ranking-table .xp-cell {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.ranking-table .status-cell {
+    font-size: 0.7rem;
+}
+
+.ranking-table .status-cell .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+
+.ranking-table .status-cell .dot.studying {
+    background: #22C55E;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.ranking-table .status-cell .dot.offline {
+    background: var(--text-muted);
+}
+
+.ranking-table .status-cell .dot.idle {
+    background: #F59E0B;
+}
+
+/* ===== STUDY TIMER ===== */
+.study-timer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-top: 0.5rem;
+}
+
+.study-timer .timer-display {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    font-family: 'Vazirmatn', monospace;
+    min-width: 80px;
+}
+
+.study-timer .timer-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.study-timer .timer-status {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+}
+
+.study-timer .timer-status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.study-timer .timer-status .dot.active {
+    background: #22C55E;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.study-timer .timer-status .dot.inactive {
+    background: var(--text-muted);
+}
+
+/* ===== MY RANK ===== */
+.my-rank-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--accent-light);
+    border-radius: 12px;
+    border: 1px solid var(--accent);
+    margin-top: 0.8rem;
+}
+
+.my-rank-card .rank-badge {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    min-width: 50px;
+}
+
+.my-rank-card .info {
+    flex: 1;
+}
+
+.my-rank-card .info .name {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.my-rank-card .info .xp {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.my-rank-card .info .xp strong {
+    color: var(--accent);
+}
+
+/* ========================================== */
+/* RESPONSIVE */
+/* ========================================== */
+
+@media (max-width: 768px) {
+    .ranking-table {
+        font-size: 0.75rem;
+    }
+    
+    .ranking-table th,
+    .ranking-table td {
+        padding: 0.3rem 0.4rem;
+    }
+    
+    .ranking-table .user-cell .avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
+    }
+    
+    .study-timer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .my-rank-card {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ========================================== */
+/* NIGHT MODE */
+/* ========================================== */
+
+body.night .ranking-section {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .study-timer {
+    background: var(--bg);
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .ranking-table td {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .ranking-table th {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .my-rank-card {
+    background: rgba(255, 107, 138, 0.08);
+}
+
+/* ==========================================
+   WEEKLY CHALLENGE - اضافات
+   ========================================== */
+
+.challenge-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    border-left: 4px solid var(--gold);
+}
+
+.challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.challenge-header h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.challenge-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: block;
+}
+
+.challenge-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.challenge-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.challenge-progress {
+    margin: 0.8rem 0;
+}
+
+.challenge-progress .progress-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.challenge-progress .progress-fill {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--gold), #F5D78A);
+    transition: width 0.6s ease;
+}
+
+.challenge-progress .progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.challenge-completed {
+    text-align: center;
+    padding: 1rem;
+    background: var(--green-light);
+    border-radius: 12px;
+    margin: 0.8rem 0;
+}
+
+.challenge-completed .completed-icon {
+    font-size: 2.5rem;
+}
+
+.challenge-completed h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--green);
+    margin: 0.3rem 0;
+}
+
+.challenge-completed p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.challenge-completed .badge-display {
+    font-size: 3rem;
+    margin-top: 0.5rem;
+}
+
+.challenge-contributors {
+    margin: 0.8rem 0;
+}
+
+.challenge-contributors h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.contributor-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8rem;
+}
+
+.contributor-item:last-child {
+    border-bottom: none;
+}
+
+.contributor-item .rank {
+    min-width: 30px;
+    font-weight: 700;
+}
+
+.contributor-item .name {
+    flex: 1;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.contributor-item .xp {
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 70px;
+    text-align: left;
+}
+
+.contributor-item .contrib-bar {
+    width: 80px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.contributor-item .contrib-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--gradient-primary);
+    transition: width 0.6s ease;
+}
+
+.challenge-action {
+    text-align: center;
+    margin-top: 0.8rem;
+}
+
+.btn-challenge {
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    background: var(--gradient-primary);
+    color: white;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-challenge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 107, 138, 0.3);
+}
+
+/* ========================================== */
+/* NIGHT MODE */
+/* ========================================== */
+
+body.night .challenge-container {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .contributor-item {
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.night .challenge-completed {
+    background: rgba(34, 197, 94, 0.1);
+}

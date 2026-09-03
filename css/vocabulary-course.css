@@ -1,0 +1,355 @@
+/* ==========================================
+   VOCABULARY COURSE - 아틀라스 한글 (TOPIK)
+   ========================================== */
+
+.vocabulary-hero {
+    background: linear-gradient(135deg, #FFFBF5 0%, #FFF8F0 50%, #FFF3E5 100%);
+    padding: 5rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+body.night .vocabulary-hero {
+    background: linear-gradient(135deg, #1A1510 0%, #25201A 50%, #15100A 100%);
+}
+
+.vocabulary-hero::before {
+    content: '어휘';
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16rem;
+    font-weight: 900;
+    color: #C4956A;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.vocabulary-hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .vocabulary-hero .container { grid-template-columns: 1fr; }
+}
+
+.vocabulary-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(196,149,106,0.1);
+    color: #C4956A;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(196,149,106,0.2);
+}
+
+.vocabulary-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.vocabulary-hero-title .ko {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #C4956A;
+    display: block;
+    font-size: 2rem;
+}
+
+.vocabulary-hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.vocabulary-hero-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.vocabulary-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.vocabulary-stat i { color: #C4956A; }
+
+/* Progress */
+.vocabulary-hero-progress {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.progress-circle {
+    width: 140px; height: 140px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.progress-circle svg { transform: rotate(-90deg); }
+.progress-circle .bg { fill: none; stroke: var(--border); stroke-width: 10; }
+.progress-circle .fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1.8s ease; }
+.progress-circle .percent-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #C4956A;
+}
+
+.progress-info-text { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.progress-mini-bar { height: 8px; background: var(--border); border-radius: 10px; overflow: hidden; }
+.progress-mini-fill { height: 100%; background: linear-gradient(90deg, #C4956A, #D4A853); border-radius: 10px; transition: width 0.5s ease; }
+
+/* Tabs */
+.course-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+}
+
+.course-tab {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s;
+}
+
+.course-tab:hover { color: #C4956A; }
+.course-tab.active { color: #C4956A; border-bottom-color: #C4956A; }
+
+/* Level Badge */
+.level-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.level-badge.topik1 { background: #E8F5E9; color: #22C55E; }
+.level-badge.topik2 { background: #FFF8E1; color: #F59E0B; }
+.level-badge.topik3 { background: #FEE2E2; color: #EF4444; }
+.level-badge.topik4 { background: #EDE9FE; color: #7B2EDA; }
+.level-badge.topik5 { background: #FCE7F3; color: #DB2777; }
+.level-badge.topik6 { background: #FEF3C7; color: #D97706; }
+
+/* TOPIK Level Section */
+.topik-level-section {
+    margin-bottom: 2.5rem;
+}
+
+.topik-level-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.topik-level-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.v-icon-1 { background: rgba(34,197,94,0.1); color: #22C55E; }
+.v-icon-2 { background: rgba(245,158,11,0.1); color: #F59E0B; }
+.v-icon-3 { background: rgba(239,68,68,0.1); color: #EF4444; }
+.v-icon-4 { background: rgba(123,46,218,0.1); color: #7B2EDA; }
+.v-icon-5 { background: rgba(219,39,119,0.1); color: #DB2777; }
+.v-icon-6 { background: rgba(217,119,6,0.1); color: #D97706; }
+
+.topik-level-info { flex: 1; }
+.topik-level-korean { font-family: 'Noto Sans KR', sans-serif; font-size: 0.85rem; color: #C4956A; font-weight: 600; }
+.topik-level-title { font-weight: 800; color: var(--text); font-size: 1.1rem; }
+.topik-level-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Word Grid */
+.words-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.75rem;
+}
+
+@media (max-width: 400px) {
+    .words-grid { grid-template-columns: 1fr; }
+}
+
+/* Word Card */
+.word-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.word-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(196,149,106,0.3);
+    transform: translateX(-4px);
+}
+
+.word-card.learned {
+    border-right: 4px solid #22C55E;
+}
+
+.word-number {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: rgba(196,149,106,0.08);
+    color: #C4956A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.word-card.learned .word-number {
+    background: #E8F5E9;
+    color: #22C55E;
+}
+
+.word-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.word-korean {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.word-romaji {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.word-meaning {
+    font-size: 0.85rem;
+    color: #C4956A;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+.word-pos {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.3rem;
+}
+
+.word-actions {
+    display: flex;
+    gap: 0.3rem;
+    flex-shrink: 0;
+}
+
+.word-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.word-btn:hover {
+    border-color: #C4956A;
+    color: #C4956A;
+}
+
+.word-btn.learned-btn {
+    background: #E8F5E9;
+    color: #22C55E;
+    border-color: #22C55E;
+}
+
+/* Progress Bar per Level */
+.level-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.level-progress-bar {
+    width: 80px; height: 6px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.level-progress-fill {
+    height: 100%;
+    background: #C4956A;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vocabulary-hero { padding: 3rem 0 2rem; }
+    .words-grid { grid-template-columns: 1fr; }
+}
